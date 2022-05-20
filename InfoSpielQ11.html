@@ -18,7 +18,7 @@
 
     <h1 id="caption">Hallo</h1>
 
-    <canvas height="500" width="500" id="test malen" onload="test()"></canvas>
+    <canvas height="500" width="500" id="canvas" onload="test()"></canvas>
 
     <script>
 
@@ -68,8 +68,8 @@
 
         //start() wird ausgeführt sobald die Seite geladen wird
         function start() {
-            //der Variable canvas wird das Element mit der ID "test malen" zugewiesen (der Canvas der im HTML teil erstellt wurde)
-             canvas = document.getElementById('test malen');
+            //der Variable canvas wird das Element mit der ID "canvas" zugewiesen (der Canvas der im HTML teil erstellt wurde)
+             canvas = document.getElementById('canvas');
                 
             //ctx ist der canvas, auf ihn wird zugegriffen um zu malen oder bilder einzufügen oder...
             ctx = canvas.getContext('2d');
@@ -107,7 +107,8 @@
             ctx.fillStyle = 'white';
             ctx.fillRect(x-1,y-1,202,202);
             ctx.fillStyle = '#F0DB4F';
-            //die Koordinaten des 4Ecks werden angepasst
+            //die Koordinaten des 4Ecks werden angepasst, kann in zukunft auch über geschwindigkeiten gemacht werden, die beim
+            //drücken bzw loslassen geändert werden, das wäre auch hilfreich für die Einzelbilder der Animation
             x = x+xNeu;
             y = y+yNeu;
         }
