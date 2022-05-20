@@ -18,15 +18,13 @@
 
     <h1 id="caption">Hallo</h1>
 
+    <canvas height="500" width="500" id="test malen" onload="test()">
+
     <script>
 
 //Variablen werden als globale Variablen erstellt
         let canvas;
         let ctx;
-        
-
-    
-            
         
         //das ist der KeyListener, der aufgerufen wird, sobald eine taste gedrückt wird, wird die Taste 
         //länger gedrückt gehalten wird er mehrere male ausgeführt, bis die taste wieder los gelassen wird,
@@ -41,12 +39,14 @@
                 //die variable name und code werden in die Konsole ausgegeben (im Browser öffnen mit f12) oder drei Punkte -> Entwickleroptionen (o.ä.)
                 alert('Gedrückte Taste: '+name+"\r \n Key code value: "+code)
                 //das Rechteck wird in den canvas eingefügt
-                zeichneReck()
+                zeichneReck(50,50)
                 //.....und hier wird ausgeführt wenn eine Taste gedrückt wird
             },false)
 
-        function start() {//wird ausgeführt sobald die Seite geladen wird
-            
+
+        //start() wird ausgeführt sobald die Seite geladen wird
+        function start() {
+            //der Variable canvas wird das Element mit der ID "test malen" zugewiesen (der Canvas der im HTML teil erstellt wurde)
              canvas = document.getElementById('test malen');
                 
             //ctx ist der canvas, auf ihn wird zugegriffen um zu malen oder bilder einzufügen oder...
@@ -60,25 +60,24 @@
             bild1.onload = function() {
              
             //Bildvariable, x-Koordinate, y-Koordinate, Breite, Höhe (rescaled automatisch)
-            ctx.drawImage(bild1, -50, 20, 100, 200);
+            ctx.drawImage(bild1, 250, 20, 200, 200);
             }
-
         }
-//Funktion zum Testweise zeichnen eines Rechtecks
-        function zeichneReck(){
+
+//Funktion zum Testweise zeichnen eines Rechtecks mit übergabewerten für die x- und y-Koordinate
+        function zeichneReck(x,y){
             // fill(Füllfarbe) und stroke(der Rand ausen rum) wird eine Farbe zuweisen
             ctx.fillStyle = '#F0DB4F';
             ctx.strokeStyle = 'red';
 
             // Ein ausgemaltes Rechteck malen
-            ctx.fillRect(50, 50, 150, 100);
+            ctx.fillRect(x, y, x+100, y+100);
             // Ein Rechteck malen, welches nicht gefüllt ist (der rote Rand)
-            ctx.strokeRect(50, 50, 150, 100);
+            ctx.strokeRect(x, y, x+100, y+100);
 
         }
     </script>
     
-    <canvas height="200" width="300" id="test malen" onload="test()">
     </canvas>
 
 
